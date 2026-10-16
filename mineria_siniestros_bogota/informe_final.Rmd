@@ -1,7 +1,7 @@
 ---
 title: "Minería de datos aplicada al análisis y predicción de la gravedad de los siniestros viales en Bogotá D.C."
 subtitle: "Segunda entrega — Ciclo KDD: dominio, selección, limpieza, preprocesamiento y transformación de datos"
-author: "Integrantes: [completar nombres y códigos]"
+author: "Juan Esteban Castillo Baquero — ID 852500"
 date: "Minería de Datos — Corporación Universitaria Minuto de Dios (UNIMINUTO) — `r format(Sys.Date(), '%d/%m/%Y')`"
 lang: es
 output:
