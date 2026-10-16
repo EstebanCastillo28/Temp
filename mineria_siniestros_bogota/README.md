@@ -22,6 +22,12 @@ Fuente: *Siniestros Viales Consolidados Bogotá D.C.* (Secretaría Distrital de 
 * R ≥ 4.2 con locale UTF-8. Paquetes: `dplyr tidyr readr stringr lubridate stringi ggplot2 scales gridExtra knitr kableExtra rmarkdown readxl`.
 * Para compilar el PDF: una distribución LaTeX con `xelatex` (por ejemplo `tinytex::install_tinytex()` o TeX Live) y la fuente *DejaVu* (o cambie `mainfont` en el encabezado del `.Rmd`).
 
+## Instalación rápida (Windows/Mac)
+
+1. Instalar **R** (https://cran.r-project.org) y luego **RStudio Desktop** (https://posit.co/download/rstudio-desktop).
+2. Abrir `informe_final.Rmd` en RStudio (o el proyecto por carpeta) y ejecutar una vez `source("instalar_dependencias.R")`.
+3. Pulsar **Knit** (o `rmarkdown::render("informe_final.Rmd")`).
+
 ## Cómo ejecutar
 
 Desde la raíz del proyecto:

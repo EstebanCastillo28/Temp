@@ -14,9 +14,9 @@ output:
     keep_tex: false
 geometry: margin=2.3cm
 fontsize: 11pt
-mainfont: "DejaVu Serif"
-sansfont: "DejaVu Sans"
-monofont: "DejaVu Sans Mono"
+mainfont: "Latin Modern Roman"
+sansfont: "Latin Modern Sans"
+monofont: "Latin Modern Mono"
 linestretch: 1.15
 colorlinks: true
 header-includes:
@@ -125,7 +125,7 @@ Un modelo útil para la toma de decisiones solo puede emplear información dispo
 
 ## Fuente de origen
 
-Los datos provienen del conjunto abierto **"Siniestros Viales Consolidados Bogotá D.C."** de la Secretaría Distrital de Movilidad, publicado en el portal de Datos Abiertos de Bogotá (`datosabiertos.bogota.gov.co`). Es un libro de Excel (≈ 49 MB) con cinco hojas, que se descarga y exporta a CSV con `scripts/00_descarga_datos.R` hacia `datos/raw/`. El diccionario de datos oficial viene en la propia hoja `DICCIONARIO`.
+Los datos provienen del conjunto abierto **"Siniestros Viales Consolidados Bogotá D.C."** de la Secretaría Distrital de Movilidad, publicado en el portal de Datos Abiertos de Bogotá (`datosabiertos.bogota.gov.co`). Es un libro de Excel (aprox. 49 MB) con cinco hojas, que se descarga y exporta a CSV con `scripts/00_descarga_datos.R` hacia `datos/raw/`. El diccionario de datos oficial viene en la propia hoja `DICCIONARIO`.
 
 ```{r fuente}
 tibble(Hoja = c("SINIESTROS", "ACTOR_VIAL", "VEHICULOS", "HIPOTESIS", "DICCIONARIO"),
@@ -244,7 +244,7 @@ Se hallaron `r fmt(aud$gravedad_reclasificada)` contradicciones (`r pct(aud$grav
 
 ```{r edad_errores}
 tibble(Problema = c("Edad reportada como \"SIN INFORMACION\"", "Edad 118 (valor repetido, probable código centinela)",
-                    "Edad ≥ 110 años (incluye el código 118)", "Conductores y motociclistas menores de 10 años"),
+                    "Edad >= 110 años (incluye el código 118)", "Conductores y motociclistas menores de 10 años"),
        `Registros de actores` = c(aud$edad_sin_info, aud$edad_centinela_118, aud$edad_ge110, aud$edad_motor_lt10),
        Tratamiento = c("Pasa a `NA` y se imputa en Train", "Pasa a `NA`", "Pasa a `NA`: imposible o centinela", "Pasa a `NA`: físicamente imposible")) %>%
   mutate(Tratamiento = str_replace_all(Tratamiento, "`", "")) %>%
@@ -355,7 +355,7 @@ La tabla muestra por qué **ninguna regla puede aplicarse a ciegas**:
 Se adopta una política diferenciada y documentada:
 
 ```{r outliers_decision}
-tibble(Grupo = c("Edades (media, mín., máx.)", "Conteos (vehículos, conductores, vulnerables, involucrados, pesados, clases)", "Valores imposibles (edad ≥ 110, conductor < 10 años)"),
+tibble(Grupo = c("Edades (media, mín., máx.)", "Conteos (vehículos, conductores, vulnerables, involucrados, pesados, clases)", "Valores imposibles (edad >= 110, conductor < 10 años)"),
        Decisión = c("**Conservar** los valores plausibles (hasta 109 años): son anomalías legítimas (peatones mayores)", "**Acotar (winsorizar)** al percentil 99,5 de Train: se conserva el siniestro, pero se limita la influencia de colisiones masivas", "**Anular** y tratar como faltante (Sección 4.5)"),
        Justificación = c("Eliminarlos borraría el perfil más vulnerable", "Un evento con más de 20 vehículos tiene leverage desproporcionado en escalas y distancias", "Son errores de captura, no extremos")) %>%
   mutate(across(everything(), ~ str_replace_all(.x, "\\*\\*", ""))) %>%
@@ -392,12 +392,12 @@ Todas las variables derivadas son deterministas y se calculan **sin usar el esta
 tribble(
   ~Grupo, ~Variable, ~Definición, ~`Relevancia para el negocio`,
   "Temporal", "franja_horaria", "Madrugada 00–05h, Pico AM 06–08h, Valle diurno 09–15h, Pico PM 16–19h, Noche 20–23h", "H2; operativos por franja",
-  "Temporal", "nocturno", "1 si la hora es ≥ 20 o < 6", "H2",
+  "Temporal", "nocturno", "1 si la hora es >= 20 o < 6", "H2",
   "Temporal", "fin_semana / es_festivo / dia_no_habil", "Sábado-domingo; festivos de Colombia (Ley Emiliani y Semana Santa, calculados por reglas); unión de ambos", "H2; los festivos se comportan como fin de semana",
   "Temporal", "hora_sin, hora_cos, mes_sin, mes_cos", "Codificación cíclica de hora y mes", "Evita el salto artificial 23h → 0h y dic → ene",
   "Involucrados", "hay_peaton / hay_ciclista / hay_motociclista", "Presencia de cada actor vulnerable", "H1",
   "Involucrados", "n_vulnerables, ratio_vulnerables", "Nº de peatones+ciclistas+motociclistas y su fracción sobre los involucrados", "H1; exposición relativa",
-  "Involucrados", "hay_menor, hay_adulto_mayor", "Algún actor < 18 años; algún actor ≥ 65 años", "Campañas dirigidas",
+  "Involucrados", "hay_menor, hay_adulto_mayor", "Algún actor < 18 años; algún actor >= 65 años", "Campañas dirigidas",
   "Involucrados", "edad_media, edad_min, edad_max, prop_mujeres", "Agregados por siniestro (sin pasajeros)", "Perfiles etarios y de género",
   "Vehículos", "n_vehiculos, multi_vehiculo", "Cantidad de vehículos y si hay más de uno", "Complejidad del evento",
   "Vehículos", "n_clases_veh, indice_heterogeneidad", "Clases distintas e índice de Gini-Simpson sobre las clases de vehículo (0 = homogéneo)", "Heterogeneidad de la masa vehicular",
@@ -608,19 +608,19 @@ Los siniestros con peatón tienen una tasa de fatalidad `r fmt(rr, 1)` veces la 
 
 ```
 mineria_siniestros_bogota/
-├── informe_final.Rmd            # este informe (rutas relativas)
-├── informe_final.pdf            # informe compilado
-├── scripts/
-│   ├── 00_descarga_datos.R      # descarga y exporta el consolidado oficial
-│   ├── 01_integracion_limpieza.R     # reglas deterministas + integración
-│   ├── 02_particion_transformacion.R # partición, ajuste (Train), transformación
-│   └── funciones.R                   # ajustar_/aplicar_transformacion()
-├── datos/
-│   ├── raw/                     # CSV crudos por hoja
-│   └── clean/                   # integrado, Train/Test (legible, ML, PCA)
-├── modelos/
-│   └── parametros_transformacion.rds # parámetros aprendidos en Train
-└── resultados/auditoria_limpieza.rds # contadores de la auditoría
+|-- informe_final.Rmd            # este informe (rutas relativas)
+|-- informe_final.pdf            # informe compilado
+|-- scripts/
+|   |-- 00_descarga_datos.R      # descarga y exporta el consolidado oficial
+|   |-- 01_integracion_limpieza.R     # reglas deterministas + integración
+|   |-- 02_particion_transformacion.R # partición, ajuste (Train), transformación
+|   `-- funciones.R                   # ajustar_/aplicar_transformacion()
+|-- datos/
+|   |-- raw/                     # CSV crudos por hoja
+|   `-- clean/                   # integrado, Train/Test (legible, ML, PCA)
+|-- modelos/
+|   `-- parametros_transformacion.rds # parámetros aprendidos en Train
+`-- resultados/auditoria_limpieza.rds # contadores de la auditoría
 ```
 
 ## Anexo B. Columnas del conjunto de modelamiento {-}
