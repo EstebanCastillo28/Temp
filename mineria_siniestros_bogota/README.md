@@ -11,6 +11,9 @@ Fuente: *Siniestros Viales Consolidados Bogotá D.C.* (Secretaría Distrital de 
 | `scripts/00_descarga_datos.R` | Descarga el consolidado oficial y exporta cada hoja a `datos/raw/*.csv` |
 | `scripts/01_integracion_limpieza.R` | Reglas deterministas de limpieza + integración Siniestros/Actor Vial/Vehículos a nivel de siniestro |
 | `scripts/02_particion_transformacion.R` | Partición estratificada 70/30 (semilla 2025), ajuste de parámetros **solo en Train** y transformación de Train y Test |
+| `scripts/03_figuras_sustentacion.R` | Figuras y cifras de la sustentación (`presentacion/figuras/`) |
+| `presentacion/sustentacion.pptx` | Diapositivas de la sustentación (12, con notas del orador); se regenera con `presentacion/build_deck.js` |
+| `guion_sustentacion.md` | Guion hablado con tiempos, preguntas probables y lista de chequeo |
 | `scripts/funciones.R` | `ajustar_transformacion()` y `aplicar_transformacion()` (idempotente), calendario de festivos |
 | `datos/raw/` | CSV crudos (una hoja por archivo) |
 | `datos/clean/` | `siniestros_integrado.rds`; `train_/test_` en versión legible, ML (one-hot + Z) y PCA |
