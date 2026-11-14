@@ -1,0 +1,8 @@
+descripcion,fecha,hora,localidad,clase_siniestro,tipo_choque,diseno_lugar,via_avenida,n_autos,n_motos,n_bicicletas,n_buses,n_carga_pesada,n_otros_vehiculos,n_peatones,hay_transporte_publico,hay_fuga,edad_min,edad_max,edad_media,prop_mujeres
+Atropello nocturno,2019-11-15,22,Kennedy,Atropello,No aplica (no es choque),Tramo de Via,1,1,0,0,0,0,0,1,0,0,58,58,,
+Choque entre dos autos dia habil,2019-03-12,10,Usaquén,Choque,Vehiculo,Interseccion,0,2,0,0,0,0,0,0,0,0,30,45,,
+Moto y bus sabado madrugada,2018-09-08,3,Engativá,Choque,Vehiculo,Tramo de Via,1,0,1,0,1,0,0,0,1,0,24,41,,
+Motociclista solo contra objeto fijo,2019-08-24,23,Suba,Choque,Objeto Fijo,Tramo de Via,1,0,1,0,0,0,0,0,0,0,27,27,,
+Camion y peaton con vehiculo en fuga,2017-05-04,19,Bosa,Atropello,No aplica (no es choque),Tramo de Via,1,0,0,0,0,1,0,1,0,1,45,70,,
+Caso limite 25 vehiculos,2019-06-20,14,Suba,Choque,Vehiculo,Tramo de Via,1,20,3,0,2,0,0,0,0,0,22,60,,
+Entrada invalida hora 30 edad negativa,2019-06-20,30,Suba,Choque,Vehiculo,Tramo de Via,0,2,0,0,0,0,0,0,0,0,-5,40,,

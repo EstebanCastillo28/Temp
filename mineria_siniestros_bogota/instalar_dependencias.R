@@ -1,12 +1,16 @@
 # ------------------------------------------------------------------
 # instalar_dependencias.R
-# Instala los paquetes de R y TinyTeX (LaTeX) necesarios para compilar
-# informe_final.Rmd. Ejecutar UNA vez desde RStudio:
+# Instala los paquetes de R y TinyTeX (LaTeX) necesarios para compilar informe_final.Rmd
+# y para ejecutar el despliegue (app Shiny y API). Ejecutar UNA vez desde RStudio:
 #   source("instalar_dependencias.R")
 # ------------------------------------------------------------------
-paquetes <- c("dplyr", "tidyr", "readr", "stringr", "stringi", "lubridate",
-              "ggplot2", "scales", "gridExtra", "knitr", "kableExtra",
-              "rmarkdown", "readxl", "tinytex")
+paquetes <- c(
+  # preparacion de datos e informe
+  "dplyr", "tidyr", "readr", "stringr", "stringi", "lubridate", "ggplot2", "scales", "gridExtra", "knitr", "kableExtra", "rmarkdown", "readxl", "tinytex",
+  # modelado e interpretacion
+  "glmnet", "ranger", "xgboost", "cluster", "MASS",
+  # despliegue
+  "shiny", "bslib", "plumber", "jsonlite", "httr")
 faltan <- setdiff(paquetes, rownames(installed.packages()))
 if (length(faltan)) install.packages(faltan, repos = "https://cloud.r-project.org")
 

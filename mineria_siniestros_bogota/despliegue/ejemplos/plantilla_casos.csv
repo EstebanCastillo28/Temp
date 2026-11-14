@@ -1,0 +1,2 @@
+fecha,hora,localidad,clase_siniestro,tipo_choque,diseno_lugar,via_avenida,n_autos,n_motos,n_bicicletas,n_buses,n_carga_pesada,n_otros_vehiculos,n_peatones,hay_transporte_publico,hay_fuga,edad_min,edad_max,edad_media,prop_mujeres
+2019-06-15,15,Kennedy,Choque,Vehiculo,Interseccion,0,2,0,0,0,0,0,0,0,0,25,50,,
