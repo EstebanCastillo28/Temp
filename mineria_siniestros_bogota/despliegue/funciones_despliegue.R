@@ -127,6 +127,8 @@ predecir_desde_integrado <- function(reg, A) {
 }
 
 predecir_gravedad <- function(df, A) {
+  df <- as.data.frame(df, stringsAsFactors = FALSE)
+  for (v in setdiff(COLS_ENTRADA, names(df))) df[[v]] <- NA      # columnas opcionales ausentes (p. ej. en JSON)
   val <- validar_entrada(df, A); ok <- vapply(val, function(v) length(v$errores) == 0, logical(1))
   res <- tibble(fila = seq_len(nrow(df)), valido = ok, errores = vapply(val, function(v) paste(v$errores, collapse = " | "), ""),
                 advertencias = vapply(val, function(v) paste(v$advertencias, collapse = " | "), ""),

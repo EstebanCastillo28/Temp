@@ -51,8 +51,8 @@ Los valores válidos de las categorías están en `funciones_despliegue.R` (`LOC
 
 `valido`, `errores`, `advertencias`, `prob_solo_danos`, `prob_heridos`, `prob_muertos`, `clase_predicha`, `nivel_riesgo`, `perfil`, `recomendacion`, `mensaje`.
 
-Ejemplo (atropello nocturno a un peatón de 58 años, Kennedy): probabilidad de víctimas fatales **≈ 17 %**, nivel **Alto**, perfil *Atropello a peatón*.
-(Las cifras exactas dependen del modelo guardado; ver `ejemplos/` y la sección de despliegue del informe.)
+Ejemplo (atropello nocturno a un peatón de 58 años, Kennedy): probabilidad de víctimas fatales **≈ 20 %**, nivel **Alto**, perfil *Peatón o moto, un solo vehículo*.
+(Resultados de todos los ejemplos en la sección 9.2 del informe.)
 
 ## Validación de entradas y casos límite
 

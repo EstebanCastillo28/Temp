@@ -207,7 +207,7 @@
       "p": 2.938448e-55
     }
   ],
-  "importancia": {},
+  "importancia": ["Peatón involucrado", "Proporción de vulnerables", "N.º de conductores", "N.º de actores vulnerables", "Tipo de choque", "Diseño del lugar"],
   "clusters": [
     {
       "nombre": "Peatón o moto, un solo vehículo",

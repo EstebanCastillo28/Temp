@@ -1,4 +1,4 @@
-# Minería de datos: gravedad de los siniestros viales en Bogotá D.C. — Segunda entrega
+# Minería de datos: gravedad de los siniestros viales en Bogotá D.C. — Entrega final
 
 Ciclo KDD hasta preprocesamiento y transformación (dominio, selección, limpieza, transformación sin fuga de datos).
 Fuente: *Siniestros Viales Consolidados Bogotá D.C.* (Secretaría Distrital de Movilidad, SIGAT/IPAT), 2015–2020.
@@ -14,6 +14,10 @@ Fuente: *Siniestros Viales Consolidados Bogotá D.C.* (Secretaría Distrital de 
 | `scripts/03_figuras_sustentacion.R` | Figuras y cifras de la sustentación (`presentacion/figuras/`) |
 | `presentacion/sustentacion.pptx` | Diapositivas de la sustentación (12, con notas del orador); se regenera con `presentacion/build_deck.js` |
 | `guion_sustentacion.md` | Guion hablado con tiempos, preguntas probables y lista de chequeo |
+| `scripts/04_modelado.R`, `05_evaluacion_interpretacion.R`, `06_agrupamiento.R` | Tres clasificadores con validación cruzada, evaluación en Test, interpretación, hipótesis y perfiles de riesgo |
+| `despliegue/` | App Shiny, API plumber, pruebas y monitoreo del modelo (ver `despliegue/README.md`) |
+| `modelos/` | Modelos entrenados (`modelo_*.rds`), `modelo_final.rds`, `clustering.rds`, parámetros de transformación |
+| `sustentacion_final/` | Diapositivas finales, guion y plan B (capturas y video) |
 | `scripts/funciones.R` | `ajustar_transformacion()` y `aplicar_transformacion()` (idempotente), calendario de festivos |
 | `datos/raw/` | CSV crudos (una hoja por archivo) |
 | `datos/clean/` | `siniestros_integrado.rds`; `train_/test_` en versión legible, ML (one-hot + Z) y PCA |
