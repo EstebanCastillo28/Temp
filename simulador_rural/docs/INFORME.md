@@ -1,7 +1,7 @@
 # Informe del proyecto final — Simulador "Finca La Esperanza"
 
 **Curso:** Electiva CMD: Ingeniería y Desarrollo Regional · **Período:** 2026-60 · **Tercer corte** · **Trabajo individual**
-**Autor:** _(nombre y código del estudiante)_
+**Autor:** Juan Esteban Castillo Baquero · **ID:** 852500
 
 ## 1. Investigación
 ### 1.1 Problema
@@ -64,15 +64,17 @@ Estado inicial, reproducibilidad, rangos de indicadores durante 120 meses, colap
 ### 4.3 Prueba de interfaz
 Verificada con navegador automatizado (Chromium): carga sin errores, selección de potrero, acciones, avance de años, diálogo final y guardado del formulario.
 
-### 4.4 Retroalimentación de usuarios — **por completar**
-El formulario de la pestaña *Retroalimentación* guarda respuestas en el navegador y permite exportarlas (JSON). Pasos: (1) pide a 5–10 compañeros/familiares que jueguen una partida; (2) que diligencien el formulario; (3) exporta y pega aquí el resumen; (4) lista las mejoras que hiciste.
+### 4.4 Retroalimentación de usuarios — DATOS SIMULADOS
+> **Aviso de transparencia:** por limitaciones de tiempo, la retroalimentación de esta sección es **simulada (ilustrativa)** y **no proviene de usuarios reales**. Se generaron 8 respuestas con el mismo formato del formulario del simulador (`docs/retroalimentacion_simulada.json`) para mostrar cómo se analizaría la retroalimentación real. En una versión posterior debe reemplazarse con respuestas reales recogidas mediante la pestaña *Retroalimentación*.
 
-| Criterio | Promedio (1-5) |
+| Criterio | Promedio simulado (1-5) |
 |---|---|
-| Facilidad de uso | _por completar_ |
-| Interfaz | _por completar_ |
-| Realismo | _por completar_ |
-| Aprendizaje | _por completar_ |
+| Facilidad de uso | 4,25 |
+| Claridad de la interfaz | 4,13 |
+| Realismo del modelo | 3,63 |
+| Aprendizaje sobre manejo del ecosistema | 4,63 |
+
+**Hallazgos simulados y mejoras derivadas:** (1) explicar la ronda hídrica (línea punteada azul) — ya aparece en la leyenda y en "Aprende"; (2) texto pequeño del mapa en celular — pendiente; (3) pedir confirmación/mostrar impacto antes de talar — propuesto; (4) guía inicial — la pestaña "Aprende" incluye "Cómo jugar"; (5) mayor realismo con eventos aleatorios y precios variables — trabajo futuro.
 
 ## 5. Conclusiones
 - La ganadería extensiva sin gestión es económica y ambientalmente frágil: el sobrepastoreo degrada suelo y agua y termina afectando el ingreso.

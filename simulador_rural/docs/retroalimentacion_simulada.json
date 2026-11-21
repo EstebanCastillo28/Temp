@@ -1,0 +1,10 @@
+[
+{"nombre":"U1 (simulado)","uso":5,"ui":4,"real":4,"aprend":5,"estrategia":"Rotacional + silvopastoril","puntaje":"81","errores":"Ninguno","sug":"Agregar un botón de ayuda dentro del mapa."},
+{"nombre":"U2 (simulado)","uso":4,"ui":4,"real":3,"aprend":5,"estrategia":"Solo rotacional","puntaje":"74","errores":"No quedaba claro qué es la ronda hídrica al inicio.","sug":"Explicar la línea punteada azul en la leyenda."},
+{"nombre":"U3 (simulado)","uso":4,"ui":5,"real":4,"aprend":4,"estrategia":"Quemas y fertilizante","puntaje":"21","errores":"Ninguno","sug":"Mostrar una comparación final contra la estrategia sostenible."},
+{"nombre":"U4 (simulado)","uso":5,"ui":4,"real":4,"aprend":5,"estrategia":"Regeneración de la ronda + rotación","puntaje":"79","errores":"Ninguno","sug":"Más eventos aleatorios (plagas, precios)."},
+{"nombre":"U5 (simulado)","uso":3,"ui":4,"real":3,"aprend":4,"estrategia":"Sin intervención","puntaje":"12","errores":"Quiebra rápida, sorprende al principio.","sug":"Una guía inicial paso a paso."},
+{"nombre":"U6 (simulado)","uso":4,"ui":3,"real":4,"aprend":5,"estrategia":"Silvopastoril en 15 potreros","puntaje":"72","errores":"En celular los números del mapa son pequeños.","sug":"Aumentar tamaño de texto en móvil."},
+{"nombre":"U7 (simulado)","uso":5,"ui":5,"real":4,"aprend":4,"estrategia":"Rotacional + banco forrajero","puntaje":"77","errores":"Ninguno","sug":"Permitir guardar la partida."},
+{"nombre":"U8 (simulado)","uso":4,"ui":4,"real":3,"aprend":5,"estrategia":"Tala del bosque para más pasto","puntaje":"38","errores":"Ninguno","sug":"Mostrar el impacto de talar antes de confirmar."}
+]
