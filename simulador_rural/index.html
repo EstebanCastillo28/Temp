@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulador Finca La Esperanza</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+  <div>
+    <h1>🌿 Finca "La Esperanza" — Simulador de ganadería sostenible</h1>
+    <p>Electiva CMD: Ingeniería y Desarrollo Regional · Uniminuto · 2026-60 · Tercer corte</p>
+  </div>
+  <nav id="tabs">
+    <button data-tab="sim" class="on">Simulador</button>
+    <button data-tab="learn">Aprende</button>
+    <button data-tab="fb">Retroalimentación</button>
+  </nav>
+</header>
+
+<main id="tab-sim">
+  <section class="panel" id="mapPanel">
+    <div class="bar">
+      <strong>Mapa de la finca (38 ha)</strong>
+      <label>Capa:
+        <select id="layer">
+          <option value="uso">Uso del suelo</option><option value="grass">Pasto disponible</option>
+          <option value="soil">Calidad del suelo</option><option value="trees">Cobertura arbórea</option>
+        </select>
+      </label>
+    </div>
+    <div id="grid" role="grid" aria-label="Mapa de la finca"></div>
+    <div class="legend" id="legend"></div>
+    <div id="cellInfo" class="info">Selecciona un potrero para ver su estado y tomar decisiones.</div>
+    <div id="cellActions" class="actions"></div>
+  </section>
+
+  <section class="panel" id="ctrlPanel">
+    <div class="clock">
+      <div><span id="year">Año 1</span> · <span id="monthName">Enero</span> <small id="monthNum">(mes 0/120)</small></div>
+      <div id="climate" class="badge">Normal</div>
+    </div>
+    <div class="row">
+      <button id="btnStep" class="primary">Avanzar 1 mes ▶</button>
+      <button id="btnYear">+ 1 año ⏩</button>
+      <button id="btnPlay">▶ Auto</button>
+      <button id="btnReset">↺ Reiniciar</button>
+    </div>
+    <h3>Decisiones de manejo</h3>
+    <div class="row">
+      <label>Pastoreo:
+        <select id="grazing"><option value="continuo">Continuo (todo el hato en todos los potreros)</option><option value="rotacional">Rotacional (potreros con descanso)</option></select>
+      </label>
+    </div>
+    <div class="row"><label><input type="checkbox" id="supp"> Suplemento concentrado (costo $0,06 M/animal/mes)</label></div>
+    <div class="row">
+      <span>Hato: <b id="cattle">0</b> animales</span>
+      <button id="buy1">Comprar 1</button><button id="buy5">+5</button>
+      <button id="sell1">Vender 1</button><button id="sell5">−5</button>
+    </div>
+    <h3>Indicadores</h3>
+    <div id="kpis"></div>
+    <canvas id="chart" width="420" height="170" aria-label="Historial de indicadores"></canvas>
+    <div class="legendChart" id="chartLegend"></div>
+  </section>
+
+  <section class="panel" id="logPanel">
+    <h3>Bitácora de la finca</h3>
+    <ul id="log"></ul>
+  </section>
+</main>
+
+<main id="tab-learn" hidden>
+  <section class="panel doc" id="learnDoc"></section>
+</main>
+
+<main id="tab-fb" hidden>
+  <section class="panel doc">
+    <h2>Retroalimentación de usuarios</h2>
+    <p>Después de jugar, califica el simulador (1 = muy bajo, 5 = muy alto). Las respuestas se guardan en este navegador y se pueden exportar para el informe de pruebas.</p>
+    <form id="fbForm">
+      <label>Nombre o código (opcional) <input name="nombre"></label>
+      <label>Facilidad de uso <select name="uso"></select></label>
+      <label>Claridad de la interfaz <select name="ui"></select></label>
+      <label>Realismo del modelo <select name="real"></select></label>
+      <label>Aprendizaje sobre manejo del ecosistema <select name="aprend"></select></label>
+      <label>¿Qué estrategia usaste?<input name="estrategia" placeholder="Ej: rotación + silvopastoril"></label>
+      <label>Puntaje final obtenido <input name="puntaje" type="number" min="0" max="100"></label>
+      <label>Errores encontrados <textarea name="errores" rows="2"></textarea></label>
+      <label>Sugerencias de mejora <textarea name="sug" rows="3"></textarea></label>
+      <div class="row"><button class="primary">Guardar respuesta</button>
+        <button type="button" id="fbExport">Exportar JSON</button><button type="button" id="fbClear">Borrar todo</button></div>
+    </form>
+    <h3>Resumen (<span id="fbN">0</span> respuestas)</h3>
+    <div id="fbSummary"></div>
+  </section>
+</main>
+
+<dialog id="endDlg"><div id="endBody"></div><form method="dialog"><button class="primary">Cerrar</button></form></dialog>
+<div id="toast" role="status"></div>
+
+<script src="js/sim.js"></script>
+<script src="js/content.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
